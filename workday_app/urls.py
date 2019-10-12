@@ -16,4 +16,5 @@ schedule_data_detail = ScheduleViewSet.as_view({
 
 urlpatterns = [
     url(r'', schedule_data_list, name='schedule-list'),
+    url(r'(?P<pk>[0-9]+)', schedule_data_detail, name='schedule-detail'),
 ]
