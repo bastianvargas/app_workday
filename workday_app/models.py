@@ -38,3 +38,6 @@ class Schedule(models.Model):
         )
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
+
+    def __str__(self):
+        return self.workday, self.day
