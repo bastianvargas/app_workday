@@ -13,12 +13,28 @@ class Workday(models.Model):
         return self.name
 
 class Schedule(models.Model):
+    LUNES = 'Lu'
+    MARTES = 'Ma'
+    MIERCOLES = 'Mi'
+    JUEVES = 'Ju'
+    VIERNES = 'Vi'
+
+    DAYS_CHOICES = (
+        (LUNES, 'Lunes'),
+        (MARTES, 'Martes'),
+        (MIERCOLES, 'Miercoles'),
+        (JUEVES, 'Jueves'),
+        (VIERNES, 'Viernes'),
+    )
     workday = models.ForeignKey(
         Workday,
         on_delete=models.CASCADE,
         null=False,
         blank=False
         )
-    day = models.CharField(max_length=15)
+    day = models.CharField(
+        max_length=12,
+        choices=DAYS_CHOICES
+        )
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
