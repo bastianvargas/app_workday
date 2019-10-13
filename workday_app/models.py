@@ -36,8 +36,7 @@ class Schedule(models.Model):
         max_length=12,
         choices=DAYS_CHOICES
         )
-    start_time = models.DateTimeField()
-    end_time = models.DateTimeField()
+    start_time = models.TimeField()
+    end_time = models.TimeField()
 
-    def __str__(self):
-        return self.workday, self.day
+    
