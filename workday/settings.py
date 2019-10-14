@@ -39,9 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'workday_app',
     'rest_framework',
+    'corsheaders',
+    'oauth2_provider',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -50,6 +53,16 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASES': (
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'PAGE_SIZE': 10
+}
 
 ROOT_URLCONF = 'workday.urls'
 
@@ -111,7 +124,7 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
 
@@ -120,3 +133,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+DATETIME_INPUT_FORMATS = [
+    '%H:%M',
+]
+
+CORS_ORIGIN_WHITELIST = (
+    'localhost:3000',
+)
+OAUTH_PROVIDER = (
+    'SCOPES': {'read': 'Read scope', 'write': 'Write scope'}
+)
