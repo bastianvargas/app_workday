@@ -39,12 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'workday_app',
     'rest_framework',
-    'corsheaders',
-    'oauth2_provider',
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -138,9 +135,6 @@ DATETIME_INPUT_FORMATS = [
     '%H:%M',
 ]
 
-CORS_ORIGIN_WHITELIST = (
-    'localhost:3000',
-)
-OAUTH_PROVIDER = (
+OAUTH_PROVIDER = {
     'SCOPES': {'read': 'Read scope', 'write': 'Write scope'}
-)
+}
