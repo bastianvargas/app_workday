@@ -19,4 +19,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/v1.0/', include('workday_app.urls')),
+    url(r'^calendar/', include('calendar_app.urls')),
 ]
