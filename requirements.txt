@@ -2,7 +2,7 @@ Django==1.11.6
 djangorestframework==3.9.4
 pip==19.2.3
 pytz==2019.2
-setuptools==41.2.0
+setuptools==65.5.1
 wheel==0.33.6
 certifi==2019.9.11
 chardet==3.0.4    
